@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus SaaS - Responsive Dashboard Navigation</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- SVG Icon Definitions Library -->
+  <svg style="display: none;">
+    <defs>
+      <!-- Logo Symbol -->
+      <g id="icon-logo">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <!-- Dashboard / Home Icon -->
+      <g id="icon-dashboard">
+        <rect x="3" y="3" width="7" height="9" rx="1" stroke="currentColor" stroke-width="2" fill="none" />
+        <rect x="14" y="3" width="7" height="5" rx="1" stroke="currentColor" stroke-width="2" fill="none" />
+        <rect x="14" y="12" width="7" height="9" rx="1" stroke="currentColor" stroke-width="2" fill="none" />
+        <rect x="3" y="16" width="7" height="5" rx="1" stroke="currentColor" stroke-width="2" fill="none" />
+      </g>
+      <!-- Analytics Icon -->
+      <g id="icon-analytics">
+        <line x1="18" y1="20" x2="18" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        <line x1="12" y1="20" x2="12" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        <line x1="6" y1="20" x2="6" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <!-- Customers Icon -->
+      <g id="icon-customers">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" />
+        <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <!-- Projects Icon -->
+      <g id="icon-projects">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      </g>
+      <!-- Billing Icon -->
+      <g id="icon-billing">
+        <rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none" />
+        <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="2" />
+      </g>
+      <!-- Settings Icon -->
+      <g id="icon-settings">
+        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none" />
+        <path
+          d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+          stroke="currentColor" stroke-width="2" fill="none" />
+      </g>
+      <!-- Bell / Notification Icon -->
+      <g id="icon-bell">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <!-- Search Icon -->
+      <g id="icon-search">
+        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <!-- Chevron Down Icon -->
+      <g id="icon-chevron-down">
+        <polyline points="6 9 12 15 18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" fill="none" />
+      </g>
+      <!-- Chevron Left/Right Icon -->
+      <g id="icon-chevron-left">
+        <polyline points="15 18 9 12 15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" fill="none" />
+      </g>
+      <!-- Check Icon -->
+      <g id="icon-check">
+        <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" fill="none" />
+      </g>
+      <!-- Sun Icon -->
+      <g id="icon-sun">
+        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none" />
+        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" />
+        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" />
+        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+      </g>
+      <!-- Moon Icon -->
+      <g id="icon-moon">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" fill="none" />
+      </g>
+      <!-- Plus Icon -->
+      <g id="icon-plus">
+        <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <!-- More / Menu Dots Icon -->
+      <g id="icon-more">
+        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+        <circle cx="19" cy="12" r="1.5" fill="currentColor" />
+        <circle cx="5" cy="12" r="1.5" fill="currentColor" />
+      </g>
+    </defs>
+  </svg>
+
+  <div id="app">
+    <!-- =========================================================================
+         1. DESKTOP & TABLET SIDEBAR NAVIGATION
+         ========================================================================= -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Sidebar Header & Brand -->
+      <div class="sidebar-header">
+        <a href="#" class="brand-container">
+          <div class="brand-logo">
+            <svg>
+              <use href="#icon-logo" />
+            </svg>
+          </div>
+          <span class="brand-title">Nexus SaaS</span>
+        </a>
+        <button class="sidebar-toggle-btn" id="sidebarCollapseBtn" aria-label="Collapse Sidebar" title="Toggle Sidebar">
+          <svg width="20" height="20">
+            <use href="#icon-chevron-left" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Team Switcher Dropdown Trigger Section -->
+      <div class="team-switcher-wrapper">
+        <button class="team-switcher-btn" id="teamSwitcherBtn" aria-expanded="false" aria-haspopup="true">
+          <div class="team-info">
+            <div class="team-avatar" id="activeTeamAvatar">A</div>
+            <div class="team-text">
+              <span class="team-name" id="activeTeamName">Acme Corp</span>
+              <span class="team-plan" id="activeTeamPlan">Enterprise Plan</span>
+            </div>
+          </div>
+          <div class="team-chevron">
+            <svg width="16" height="16">
+              <use href="#icon-chevron-down" />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Team Switcher Dropdown Menu -->
+        <div class="dropdown-menu team-dropdown-menu" id="teamDropdownMenu">
+          <button class="team-option active" data-team="Acme Corp" data-plan="Enterprise Plan" data-avatar="A">
+            <div class="team-avatar" style="background: linear-gradient(135deg, var(--primary), var(--accent-purple));">
+              A</div>
+            <div class="team-text">
+              <span class="team-name">Acme Corp</span>
+              <span class="team-plan">Enterprise • 48 users</span>
+            </div>
+            <div class="team-option-check"><svg width="16" height="16">
+                <use href="#icon-check" />
+              </svg></div>
+          </button>
+
+          <button class="team-option" data-team="Stark Tech" data-plan="Pro Plan" data-avatar="S">
+            <div class="team-avatar"
+              style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-emerald));">S</div>
+            <div class="team-text">
+              <span class="team-name">Stark Tech</span>
+              <span class="team-plan">Pro • 12 users</span>
+            </div>
+            <div class="team-option-check" style="display:none;"><svg width="16" height="16">
+                <use href="#icon-check" />
+              </svg></div>
+          </button>
+
+          <button class="team-option" data-team="Apex Labs" data-plan="Developer Plan" data-avatar="X">
+            <div class="team-avatar"
+              style="background: linear-gradient(135deg, var(--accent-amber), var(--accent-rose));">X</div>
+            <div class="team-text">
+              <span class="team-name">Apex Labs</span>
+              <span class="team-plan">Free • 3 users</span>
+            </div>
+            <div class="team-option-check" style="display:none;"><svg width="16" height="16">
+                <use href="#icon-check" />
+              </svg></div>
+          </button>
+
+          <div class="dropdown-divider"></div>
+
+          <button class="team-action-btn" id="createNewTeamBtn">
+            <svg width="16" height="16">
+              <use href="#icon-plus" />
+            </svg>
+            <span>Create New Workspace</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Links Groups -->
+      <nav class="sidebar-nav">
+        <!-- Overview Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">Overview</div>
+          <a href="#dashboard" class="nav-item active" data-view="dashboard">
+            <svg>
+              <use href="#icon-dashboard" />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a href="#analytics" class="nav-item" data-view="analytics">
+            <svg>
+              <use href="#icon-analytics" />
+            </svg>
+            <span>Analytics</span>
+            <span class="nav-item-badge">Live</span>
+          </a>
+        </div>
+
+        <!-- Workspace Group -->
+        <div class="nav-group">
+          <div class="nav-group-title">Workspace</div>
+          <a href="#customers" class="nav-item" data-view="customers">
+            <svg>
+              <use href="#icon-customers" />
+            </svg>
+            <span>Customers</span>
+          </a>
+          <a href="#projects" class="nav-item" data-view="projects">
+            <svg>
+              <use href="#icon-projects" />
+            </svg>
+            <span>Projects</span>
+            <span class="nav-item-badge" style="background-color: var(--accent-cyan);">12</span>
+          </a>
+          <a href="#billing" class="nav-item" data-view="billing">
+            <svg>
+              <use href="#icon-billing" />
+            </svg>
+            <span>Billing</span>
+          </a>
+        </div>
+
+        <!-- System Group -->
+        <div class="nav-group" style="margin-top: auto;">
+          <div class="nav-group-title">System</div>
+          <a href="#settings" class="nav-item" data-view="settings">
+            <svg>
+              <use href="#icon-settings" />
+            </svg>
+            <span>Settings</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Sidebar Footer User Profile -->
+      <div class="sidebar-footer">
+        <button class="user-profile-btn" id="userProfileBtn">
+          <div class="user-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+              alt="Avatar" class="user-avatar">
+            <div class="status-dot"></div>
+          </div>
+          <div class="user-details">
+            <span class="user-name">Sarah Jenkins</span>
+            <span class="user-email">sarah@nexus.io</span>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =========================================================================
+         2. MAIN WRAPPER & TOP HEADER
+         ========================================================================= -->
+    <div class="main-wrapper">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-trigger" id="mobileMenuBtn" aria-label="Open Navigation">
+            <svg width="24" height="24">
+              <use href="#icon-more" />
+            </svg>
+          </button>
+
+          <!-- Search Trigger Button (Cmd+K) -->
+          <button class="search-trigger-btn" id="searchCmdBtn" title="Search commands (Cmd+K)">
+            <svg width="18" height="18">
+              <use href="#icon-search" />
+            </svg>
+            <span class="search-trigger-text">Search actions, pages & docs...</span>
+            <kbd class="shortcut-kbd"><span class="cmd-symbol">⌘</span>K</kbd>
+          </button>
+        </div>
+
+        <div class="header-right">
+          <!-- Dark/Light Theme Toggle Button -->
+          <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme"
+            title="Toggle Light/Dark Theme">
+            <svg width="20" height="20" class="sun-icon">
+              <use href="#icon-sun" />
+            </svg>
+            <svg width="20" height="20" class="moon-icon" style="display: none;">
+              <use href="#icon-moon" />
+            </svg>
+          </button>
+
+          <!-- Notification Bell Trigger Button -->
+          <button class="notification-bell-btn" id="notificationBellBtn" aria-label="Notifications"
+            title="Notifications">
+            <svg width="20" height="20">
+              <use href="#icon-bell" />
+            </svg>
+            <!-- Red Indicator Badge with Pulse Ring -->
+            <div class="notification-badge pulse" id="notifBadge"></div>
+            <div class="notification-badge-count" id="notifCount">3</div>
+          </button>
+        </div>
+
+        <!-- Notification Dropdown Panel Popover -->
+        <div class="dropdown-menu notification-panel" id="notificationPanel">
+          <div class="panel-header">
+            <div class="panel-title">
+              Notifications
+              <span class="unread-count-pill" id="panelUnreadPill">3 New</span>
+            </div>
+            <button class="mark-read-btn" id="markAllReadBtn">Mark all read</button>
+          </div>
+
+          <div class="notification-list" id="notificationList">
+            <!-- Item 1 -->
+            <div class="notification-item unread" data-id="1">
+              <div class="notif-icon security">
+                <svg width="18" height="18">
+                  <use href="#icon-bell" />
+                </svg>
+              </div>
+              <div class="notif-content">
+                <div class="notif-title">New login from Chrome / macOS</div>
+                <div class="notif-desc">Security check verified from IP 192.168.1.42</div>
+                <div class="notif-time">2 mins ago</div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="notification-item unread" data-id="2">
+              <div class="notif-icon billing">
+                <svg width="18" height="18">
+                  <use href="#icon-billing" />
+                </svg>
+              </div>
+              <div class="notif-content">
+                <div class="notif-title">Invoice #INV-2026-89 Paid</div>
+                <div class="notif-desc">Enterprise Plan auto-renewed successfully ($499.00)</div>
+                <div class="notif-time">1 hour ago</div>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="notification-item unread" data-id="3">
+              <div class="notif-icon team">
+                <svg width="18" height="18">
+                  <use href="#icon-customers" />
+                </svg>
+              </div>
+              <div class="notif-content">
+                <div class="notif-title">Alex Vance joined Acme Corp</div>
+                <div class="notif-desc">Invited as Senior Product Lead in Workspace</div>
+                <div class="notif-time">4 hours ago</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-footer">
+            <button class="view-all-btn" id="clearAllNotifsBtn">Clear All Notifications</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- =========================================================================
+           3. DYNAMIC CONTENT VIEWS
+           ========================================================================= -->
+      <main class="content-container">
+        <!-- Dashboard View -->
+        <section id="view-dashboard" class="page-view">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Executive Dashboard</h1>
+              <p class="page-subtitle" id="workspaceWelcomeText">Welcome back, Sarah! Here is Acme Corp's overview for
+                today.</p>
+            </div>
+            <div class="header-actions">
+              <button class="btn-secondary" id="exportReportBtn">
+                <svg width="16" height="16">
+                  <use href="#icon-analytics" />
+                </svg>
+                Export
+              </button>
+              <button class="btn-primary" id="newProjectBtn">
+                <svg width="16" height="16">
+                  <use href="#icon-plus" />
+                </svg>
+                New Project
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Metric Cards Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Monthly Recurring Revenue</span>
+                <div class="metric-icon-wrap"><svg width="18" height="18">
+                    <use href="#icon-billing" />
+                  </svg></div>
+              </div>
+              <div class="metric-value" id="statMRR">$128,450</div>
+              <div class="metric-footer">
+                <span class="trend-badge positive">↑ 14.2%</span>
+                <span style="color: var(--text-dim);">vs last month</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Active Users</span>
+                <div class="metric-icon-wrap"><svg width="18" height="18">
+                    <use href="#icon-customers" />
+                  </svg></div>
+              </div>
+              <div class="metric-value" id="statUsers">24,892</div>
+              <div class="metric-footer">
+                <span class="trend-badge positive">↑ 8.6%</span>
+                <span style="color: var(--text-dim);">vs last month</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Conversion Rate</span>
+                <div class="metric-icon-wrap"><svg width="18" height="18">
+                    <use href="#icon-analytics" />
+                  </svg></div>
+              </div>
+              <div class="metric-value">4.18%</div>
+              <div class="metric-footer">
+                <span class="trend-badge positive">↑ 1.2%</span>
+                <span style="color: var(--text-dim);">benchmark 3.5%</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Customer Churn</span>
+                <div class="metric-icon-wrap"><svg width="18" height="18">
+                    <use href="#icon-projects" />
+                  </svg></div>
+              </div>
+              <div class="metric-value">0.82%</div>
+              <div class="metric-footer">
+                <span class="trend-badge positive">↓ 0.15%</span>
+                <span style="color: var(--text-dim);">improving</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts & Activity Grid -->
+          <div class="dashboard-grid">
+            <!-- Revenue Growth Chart -->
+            <div class="card-panel">
+              <div class="card-title-row">
+                <span class="card-heading">Revenue Growth Trend</span>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Year 2026</span>
+              </div>
+              <div class="chart-container">
+                <svg viewBox="0 0 500 200" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.35" />
+                      <stop offset="100%" stop-color="var(--primary)" stop-opacity="0.0" />
+                    </linearGradient>
+                  </defs>
+                  <!-- Gradient Area -->
+                  <polygon class="chart-area"
+                    points="0,200 0,160 80,140 160,110 240,130 320,70 400,90 480,30 500,20 500,200" />
+                  <!-- Line -->
+                  <polyline class="chart-line" points="0,160 80,140 160,110 240,130 320,70 400,90 480,30 500,20" />
+                  <!-- Points -->
+                  <circle class="chart-point" cx="80" cy="140" r="5">
+                    <title>Jan: $45K</title>
+                  </circle>
+                  <circle class="chart-point" cx="160" cy="110" r="5">
+                    <title>Feb: $62K</title>
+                  </circle>
+                  <circle class="chart-point" cx="240" cy="130" r="5">
+                    <title>Mar: $58K</title>
+                  </circle>
+                  <circle class="chart-point" cx="320" cy="70" r="5">
+                    <title>Apr: $94K</title>
+                  </circle>
+                  <circle class="chart-point" cx="400" cy="90" r="5">
+                    <title>May: $88K</title>
+                  </circle>
+                  <circle class="chart-point" cx="480" cy="30" r="5">
+                    <title>Jun: $128K</title>
+                  </circle>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Recent Activity Panel -->
+            <div class="card-panel">
+              <div class="card-title-row">
+                <span class="card-heading">Recent Workspace Activity</span>
+              </div>
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>User</th>
+                      <th>Action</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>David Miller</td>
+                      <td>Updated API Keys</td>
+                      <td><span class="status-badge active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>Emma Watson</td>
+                      <td>Created Project Apex</td>
+                      <td><span class="status-badge active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>Liam Neeson</td>
+                      <td>Pending Approval</td>
+                      <td><span class="status-badge pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                      <td>Sophia Chen</td>
+                      <td>Exported Monthly Report</td>
+                      <td><span class="status-badge active">Active</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Placeholder views for routing demo -->
+        <section id="view-analytics" class="page-view" style="display: none;">
+          <h1 class="page-title">Analytics & Insights</h1>
+          <p class="page-subtitle">Detailed traffic, retention, and custom reports.</p>
+        </section>
+        <section id="view-customers" class="page-view" style="display: none;">
+          <h1 class="page-title">Customer Directory</h1>
+          <p class="page-subtitle">Manage user accounts and organization permissions.</p>
+        </section>
+        <section id="view-projects" class="page-view" style="display: none;">
+          <h1 class="page-title">Projects</h1>
+          <p class="page-subtitle">Track active workspace deliverables and sprint progress.</p>
+        </section>
+        <section id="view-billing" class="page-view" style="display: none;">
+          <h1 class="page-title">Billing & Subscriptions</h1>
+          <p class="page-subtitle">Invoices, payment methods, and plan limits.</p>
+        </section>
+        <section id="view-settings" class="page-view" style="display: none;">
+          <h1 class="page-title">System Settings</h1>
+          <p class="page-subtitle">Configure workspace preferences, webhooks, and security.</p>
+        </section>
+      </main>
+    </div>
+
+    <!-- =========================================================================
+         4. MOBILE BOTTOM TAB BAR (< 768px)
+         ========================================================================= -->
+    <nav class="mobile-bottom-bar" id="mobileBottomBar">
+      <ul class="tab-nav-list">
+        <li class="tab-nav-item">
+          <button class="tab-link-btn active" data-view="dashboard" title="Dashboard">
+            <svg>
+              <use href="#icon-dashboard" />
+            </svg>
+            <span>Home</span>
+          </button>
+        </li>
+        <li class="tab-nav-item">
+          <button class="tab-link-btn" data-view="analytics" title="Analytics">
+            <svg>
+              <use href="#icon-analytics" />
+            </svg>
+            <span>Analytics</span>
+          </button>
+        </li>
+        <li class="tab-nav-item">
+          <button class="tab-link-btn" id="mobileSearchTabBtn" title="Search">
+            <svg>
+              <use href="#icon-search" />
+            </svg>
+            <span>Search</span>
+          </button>
+        </li>
+        <li class="tab-nav-item">
+          <button class="tab-link-btn" id="mobileNotifTabBtn" title="Notifications">
+            <svg>
+              <use href="#icon-bell" />
+            </svg>
+            <div class="mobile-tab-badge" id="mobileTabBadge"></div>
+            <span>Alerts</span>
+          </button>
+        </li>
+        <li class="tab-nav-item">
+          <button class="tab-link-btn" id="mobileMoreTabBtn" title="More Menu">
+            <svg>
+              <use href="#icon-more" />
+            </svg>
+            <span>More</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mobile "More" Drawer -->
+    <div class="mobile-drawer-overlay" id="mobileDrawerOverlay">
+      <div class="mobile-drawer-card">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+          <span style="font-weight: 700; font-size: 1.05rem;">Navigation & Account</span>
+          <button id="closeMobileDrawerBtn" style="font-size: 1.2rem; color: var(--text-dim);">&times;</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <button class="team-action-btn mobile-drawer-link" data-view="customers">
+            <svg width="18" height="18">
+              <use href="#icon-customers" />
+            </svg> Customers
+          </button>
+          <button class="team-action-btn mobile-drawer-link" data-view="projects">
+            <svg width="18" height="18">
+              <use href="#icon-projects" />
+            </svg> Projects
+          </button>
+          <button class="team-action-btn mobile-drawer-link" data-view="billing">
+            <svg width="18" height="18">
+              <use href="#icon-billing" />
+            </svg> Billing & Invoices
+          </button>
+          <button class="team-action-btn mobile-drawer-link" data-view="settings">
+            <svg width="18" height="18">
+              <use href="#icon-settings" />
+            </svg> Settings
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         5. SEARCH COMMAND PALETTE MODAL (Cmd+K / Ctrl+K)
+         ========================================================================= -->
+    <div class="modal-overlay" id="commandModalOverlay" role="dialog" aria-modal="true">
+      <div class="command-palette-card">
+        <!-- Search Bar Header -->
+        <div class="command-search-header">
+          <svg>
+            <use href="#icon-search" />
+          </svg>
+          <input type="text" class="command-search-input" id="commandSearchInput"
+            placeholder="Type a command, page, or search query..." autocomplete="off">
+          <span class="esc-badge">ESC</span>
+        </div>
+
+        <!-- Filtered Command Results List -->
+        <div class="command-results-list" id="commandResultsList">
+          <!-- Group 1: Navigation Pages -->
+          <div class="command-group" data-group="Pages">
+            <div class="command-group-title">Navigation Pages</div>
+            <div class="command-item selected" data-type="page" data-target="dashboard">
+              <svg class="command-item-icon">
+                <use href="#icon-dashboard" />
+              </svg>
+              <span class="command-item-label">Go to Dashboard</span>
+              <span class="command-item-shortcut">Page</span>
+            </div>
+            <div class="command-item" data-type="page" data-target="analytics">
+              <svg class="command-item-icon">
+                <use href="#icon-analytics" />
+              </svg>
+              <span class="command-item-label">Go to Analytics</span>
+              <span class="command-item-shortcut">Page</span>
+            </div>
+            <div class="command-item" data-type="page" data-target="customers">
+              <svg class="command-item-icon">
+                <use href="#icon-customers" />
+              </svg>
+              <span class="command-item-label">Go to Customers</span>
+              <span class="command-item-shortcut">Page</span>
+            </div>
+            <div class="command-item" data-type="page" data-target="projects">
+              <svg class="command-item-icon">
+                <use href="#icon-projects" />
+              </svg>
+              <span class="command-item-label">Go to Projects</span>
+              <span class="command-item-shortcut">Page</span>
+            </div>
+          </div>
+
+          <!-- Group 2: Quick Actions -->
+          <div class="command-group" data-group="Quick Actions">
+            <div class="command-group-title">Quick Actions</div>
+            <div class="command-item" data-type="action" data-target="create-project">
+              <svg class="command-item-icon">
+                <use href="#icon-plus" />
+              </svg>
+              <span class="command-item-label">Create New Project</span>
+              <span class="command-item-shortcut">⌘N</span>
+            </div>
+            <div class="command-item" data-type="action" data-target="toggle-theme">
+              <svg class="command-item-icon">
+                <use href="#icon-sun" />
+              </svg>
+              <span class="command-item-label">Toggle Dark / Light Theme</span>
+              <span class="command-item-shortcut">⌘T</span>
+            </div>
+            <div class="command-item" data-type="action" data-target="switch-team">
+              <svg class="command-item-icon">
+                <use href="#icon-logo" />
+              </svg>
+              <span class="command-item-label">Switch Workspace / Team</span>
+              <span class="command-item-shortcut">⌘W</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Command Palette Footer -->
+        <div class="command-footer">
+          <div class="key-guide">
+            <span class="key-guide-item"><kbd class="esc-badge">↑</kbd><kbd class="esc-badge">↓</kbd> Navigate</span>
+            <span class="key-guide-item"><kbd class="esc-badge">↵</kbd> Select</span>
+            <span class="key-guide-item"><kbd class="esc-badge">ESC</kbd> Close</span>
+          </div>
+          <span>Nexus Command 2.0</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Application Logic JavaScript -->
+  <script src="app.js"></script>
+</body>
+
+</html>
